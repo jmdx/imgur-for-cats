@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}Imgur for cats{% endblock %}
+
+{% block content %}
+{% for slug, url, votes in pics -%}
+    <div class="pic">
+        <a href="/{{slug}}">
+            <div class="thumbnail" style="background-image: url({{ url }});"></div>
+        </a>
+        <div class="left-half">
+            {{votes}} likes
+        </div>
+        <div class="right-half">
+            <button type="button" onclick="send_vote('{{slug}}'); return false;">Like</button>
+        </div>
+    </div>
+{%- endfor %}
+{% endblock %}

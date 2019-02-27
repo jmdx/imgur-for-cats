@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <title>Cat Imgur</title>
+    {% endblock %}
+
+    <style>
+        /* Really bad css */
+        .pic {
+          display: inline-block;
+          width: 33%;
+        }
+        .image, button {
+          width: 100%;
+          display: block;
+        }
+        .thumbnail {
+          height: 130px;
+          background-size: cover;
+          background-position: center;
+        }
+        .site-container {
+          max-width: 700px;
+          width: 85%;
+          margin: auto;
+        }
+        body, a {
+          background-color: #3a2e39;
+          color: #eeeeee;
+          font-family: arial;
+        }
+        #footer, form {
+          margin: 3em;
+          text-align: center;
+        }
+        form {
+          text-align: center;
+        }
+        button {
+          display: inline-block;
+          font-size: 1em;
+          background-color: #1e555c;
+          color: #eeeeee;
+          max-width: 150px;
+          border: 0px;
+        }
+        button:hover {
+          background-color: #f4d8cd;
+          color: #1e555c;
+          cursor: pointer;
+        }
+        input {
+          margin-bottom: 10px;
+        }
+        .left-half {
+          width: 40%;
+          float: left;
+        }
+        .right-half {
+          width: 40%;
+          float: right;
+        }
+        .pic {
+          //background: #edb183;
+          padding-right: 10px;
+          padding-bottom: 10px;
+          box-sizing: border-box;
+        }
+    </style>
+    <script>
+        function send_vote(slug) {
+            fetch('/vote/' + slug, {
+                method: 'POST'
+            }).then(function() {
+                window.location.reload();
+            });
+        }
+    </script>
+  </head>
+  <body>
+    <div class="site-container">
+        <h1>{% block title %}{% endblock %}</h1>
+        {% block content %}{% endblock %}
+        <div id="footer">
+          {% block footer %}
+            <a href="/">Home</a>
+            <a href="/cat/add">Admin</a>
+          {% endblock %}
+        </div>
+    </div>
+  </body>
+</html>

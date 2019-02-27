@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block title %}Imgur for cats{% endblock %}
+{% block content %}
+    <a href="/{{slug}}">
+    <img width="100%" src="{{ url }}">
+    </a>
+    <button type="button" onclick="send_vote('{{slug}}'); return false;">Like</button>
+{% endblock %}

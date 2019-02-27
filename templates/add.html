@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}Secret admin page{% endblock %}
+{% block content %}
+<form action="/cat/add" method="POST">
+    <div>
+        <label>
+            Url
+            <br/>
+            <input type="text" name="cat-url" id="cat-url">
+        </label>
+        <br/>
+        <label>
+            Slug
+            <br/>
+            <input type="text" name="cat-slug" id="cat-slug">
+        </label>
+        <br/>
+        <label>
+            Super secret API token
+            <br/>
+            <input type="text" name="api-token" id="api-token">
+        </label>
+    </div>
+    <button type="submit">Add image</button>
+</form>
+{% endblock %}

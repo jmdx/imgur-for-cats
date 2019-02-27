@@ -1,3 +1,6 @@
+# Temporarily hiding the answers
+attacks/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
